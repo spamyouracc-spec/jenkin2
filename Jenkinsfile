@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    options {
-        skipDefaultCheckout(true)
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -26,8 +22,11 @@ pipeline {
 
         stage('Archive Report') {
             steps {
-                archiveArtifacts artifacts: 'build_report.txt', fingerprint: true
+                archiveArtifacts artifacts: 'build_report.txt',fingerprint : true
             }
         }
     }
-}
+
+    
+
+
